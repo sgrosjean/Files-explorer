@@ -1,0 +1,47 @@
+.nav{
+	text-align: center;
+}
+
+body{
+
+}
+
+.container{
+	margin-top: 5%;
+	text-align: center;
+}
+
+nav{
+	background-color: grey;
+	padding: 1%;
+}
+
+div .col-md-6{
+	margin-bottom: 3%;
+}
+
+.border{
+	border: 1px solid #000;
+	padding-bottom: 10px;
+}
+
+.border1{
+	border: 1px solid #000;
+}
+
+.border2{
+	border: 1px solid #000;
+}
+
+.border3{
+	border: 1px solid #000;
+
+}
+
+.border4{
+	border: 1px solid #000;
+}
+
+.border5{
+	border: 1px solid #000;
+}
