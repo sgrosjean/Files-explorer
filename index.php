@@ -53,5 +53,27 @@
 	</html>
 
 	<?php
+        $adresse = "/home/sonyag"; //Adresse du dossier.
+            if(isset($_GET['nom'])) //Si $_GET['nom'] existe.
+            {
+            if ($Fichier != "." && $Fichier != "..") 
+            {
+          $nom=''.$adresse.$_GET['nom'].'';
+          unlink($nom);
+          echo 'Le fichier "'.$_GET['nom'].'" a été éffacé !<p>';
+                }
+            } 
+        $dossier = opendir($adresse); //Ouverture du dossier. 
+        echo '<fieldset><legend>Liste des fichiers</legend><p>'; //Ouverture de fieldset 
         
+
+        while ($Fichier = readdir($dossier)) //Affichage...
+        {  
+        if ($Fichier != "." && $Fichier != "..") 
+        { 
+          echo '<a href="voir_fichiers.php?nom='.$Fichier.'">Supprimer</a> => <a href='.$adresse.$Fichier.' target="_blank">'.$Fichier.'</a><p>'; 
+            }
+        }
+        closedir($dossier); //Fermeture du dossier. 
+        echo '<p></fieldset>'; //Fermeture du fieldset.
 	?>
