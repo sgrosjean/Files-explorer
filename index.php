@@ -16,64 +16,52 @@
     			</nav>
     		</header>
 
-    			<div class="container">
+    	<div class="container">
 
-    				<div class="row">
-    					<div class="col-md-2 col-md-offset-2 border">
-    						<p>Images</p>
-    					</div>
-    					<div class="col-md-2 col-md-offset-4 border1">
-    						<p>Musique</p>
-    					</div>
-    				</div>
+	       <?php
 
-						<div class="row">
-    						<div class="col-md-2 col-md-offset-2 border2">
-    							<p>Vidéo</p>
-    						</div>
+            $base_url = "/home/sonyag/";
 
-    						<div class="col-md-2 col-md-offset-4 border3">
-    							<p>Document</p>
-    						</div>
-    					</div>
+                if (isset($_GET['dossier'])) {
+                    $base_url = $base_url.$_GET['dossier'];
+             }
 
-						<div class="row">
-    						<div class="col-md-2 col-md-offset-2 border4">
-    							<p>Téléchargement</p>
-    						</div>
+            $dirs = scandir($base_url);
 
-    						<div class="col-md-2 col-md-offset-4 border5">
-    							<p>Corbeille</p>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
+                foreach($dirs as $dir):?>
 
-    	</body>
-	</html>
+                <?php if (is_dir($base_url.$dir)){?>
+                <?php if ($dir == "..") {?>
 
-	<?php
-        $adresse = "/home/sonyag"; //Adresse du dossier.
-            if(isset($_GET['nom'])) //Si $_GET['nom'] existe.
-            {
-            if ($Fichier != "." && $Fichier != "..") 
-            {
-          $nom=''.$adresse.$_GET['nom'].'';
-          unlink($nom);
-          echo 'Le fichier "'.$_GET['nom'].'" a été éffacé !<p>';
-                }
-            } 
-        $dossier = opendir($adresse); //Ouverture du dossier. 
-        echo '<fieldset><legend>Liste des fichiers</legend><p>'; //Ouverture de fieldset 
-        
+                    <div class="col-md-4 col-md-offset-1 border">
+                        <a href="index.php"><?=$dir?></a><br>
+                    </div>
 
-        while ($Fichier = readdir($dossier)) //Affichage...
-        {  
-        if ($Fichier != "." && $Fichier != "..") 
-        { 
-          echo '<a href="voir_fichiers.php?nom='.$Fichier.'">Supprimer</a> => <a href='.$adresse.$Fichier.' target="_blank">'.$Fichier.'</a><p>'; 
-            }
-        }
-        closedir($dossier); //Fermeture du dossier. 
-        echo '<p></fieldset>'; //Fermeture du fieldset.
-	?>
+                <?php } else {?>
+
+
+                            <?php if (isset($_GET['dossier'])) {?>
+
+                                <div class="col-md-4 col-md-offset-1 border2">
+                                    <a href="index.php?dossier=<?=$_GET['dossier']?><?=$dir?>/"><?=$dir?></a><br>
+                                </div>
+
+                            <?php } else {?>
+                                <div class="col-md-4 col-md-offset-1 border2">
+                                     <a href="index.php?dossier=<?=$dir?>/"><?=$dir?></a><br>
+                                </div>
+                            <?php }?>
+
+                <?php }?>
+                <?php } else {?>
+
+                    <div class="col-md-4 col-md-offset-1 border3">
+                        <p><?=$dir;?></p>
+                    </div>
+
+                <?php }?>
+                <?php endforeach;?>
+        </div>
+
+        </body>
+    </html>
