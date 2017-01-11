@@ -7,30 +7,43 @@ body{
 }
 
 .container{
-	margin-top: 5%;
 	text-align: center;
 }
 
 nav{
-	background-color: grey;
+	background-color: #AA4139;
 	padding: 1%;
 }
 
 .border{
 	border: 1px solid #000;
-	margin-top: 10px;
+	margin-top: 25px;
+	background-color: #AA4139;
+	color: white;
 }
 
 .border2{
 	border: 1px solid #000;
-	margin-top: 10px;
+	margin-top: 25px;
+	background-color: #AA4139;
+	color: white;
 }
 
 .border3{
 	border: 1px solid #000;
-	margin-top: 10px;
+	margin-top: 25px;
+	background-color: #AA4139;
+	color: white;
 }
 
 p{
 	margin: 0;
+}
+
+a{
+	color: white;
+}
+
+.cnt{
+	padding: 20%;
 }

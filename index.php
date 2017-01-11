@@ -10,13 +10,16 @@
 		</head>
     
     	<body>
+            <div class="container">
     		<header>
     			<nav>
-    				<p class="nav">Accueil</p>
+                    <div class="cnt">
+    				    <p class="nav">Accueil</p>
+                    </div>
     			</nav>
     		</header>
 
-    	<div class="container">
+    	
 
 	       <?php
 
